@@ -8,8 +8,6 @@ const fs = require("fs");
 const srt2vtt = require("srt-to-vtt");
 const webvtt = require("node-webvtt");
 
-const port = process.env.PORT || 3000;
-
 app.use(cors());
 
 app.use(bodyParser.json());
@@ -56,6 +54,6 @@ app.post("/uploadSrt", upload.any(), (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`listening at ${port}`);
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`listening`);
 });

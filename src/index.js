@@ -8,7 +8,7 @@ const fs = require("fs");
 const srt2vtt = require("srt-to-vtt");
 const webvtt = require("node-webvtt");
 
-const port = process.env.port || 9005;
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 

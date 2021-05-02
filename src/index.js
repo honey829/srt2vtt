@@ -9,7 +9,7 @@ const srt2vtt = require("srt-to-vtt");
 const webvtt = require("node-webvtt");
 app.use(cors());
 
-fs.mkdirSync(__dirname + "/upload/");
+// fs.mkdirSync(__dirname + "/upload/");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -3,12 +3,13 @@ const app = express();
 const cors = require("cors");
 const multer = require("multer");
 const bodyParser = require("body-parser");
-const upload = multer({ dest: "upload/" });
+const upload = multer({ dest: "./upload/" });
 const fs = require("fs");
 const srt2vtt = require("srt-to-vtt");
 const webvtt = require("node-webvtt");
-
 app.use(cors());
+
+fs.mkdirSync(__dirname + "/upload/");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

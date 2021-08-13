@@ -26,6 +26,7 @@ app.get("/", (req, res) => {
 app.post("/uploadSrt", upload.any(), (req, res) => {
   console.log(req);
 
+  try {
   dataFile = {
     file: req.files[0]
   };
@@ -38,7 +39,7 @@ app.post("/uploadSrt", upload.any(), (req, res) => {
 
   var file = "";
 
-  try {
+  
     const stream = fs.createReadStream("./subtitleToVtt", "utf-8");
 
     stream.on("data", (chunk) => {

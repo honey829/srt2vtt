@@ -42,6 +42,7 @@ app.post("/uploadSrt", upload.any(), (req, res) => {
   
     const stream = fs.createReadStream("./subtitleToVtt", "utf-8");
 
+    if(stream){
     stream.on("data", (chunk) => {
       file += chunk;
     });
@@ -51,6 +52,9 @@ app.post("/uploadSrt", upload.any(), (req, res) => {
       const compile = webvtt.compile(parser);
       res.send(compile);
     });
+    }else{
+      throw new Error("Malformed SRT");
+    }
   } catch (error) {
     res.send(error);
   }
